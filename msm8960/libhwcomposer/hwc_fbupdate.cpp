@@ -33,14 +33,14 @@ IFBUpdate* IFBUpdate::getObject(const int& width, const int& dpy) {
     return new FBUpdateLowRes(dpy);
 }
 
-inline void IFBUpdate::reset() {
+void IFBUpdate::reset() {
     mModeOn = false;
 }
 
 //================= Low res====================================
 FBUpdateLowRes::FBUpdateLowRes(const int& dpy): IFBUpdate(dpy) {}
 
-inline void FBUpdateLowRes::reset() {
+void FBUpdateLowRes::reset() {
     IFBUpdate::reset();
     mDest = ovutils::OV_INVALID;
 }
@@ -142,7 +142,7 @@ bool FBUpdateLowRes::draw(hwc_context_t *ctx, private_handle_t *hnd)
 //================= High res====================================
 FBUpdateHighRes::FBUpdateHighRes(const int& dpy): IFBUpdate(dpy) {}
 
-inline void FBUpdateHighRes::reset() {
+void FBUpdateHighRes::reset() {
     IFBUpdate::reset();
     mDestLeft = ovutils::OV_INVALID;
     mDestRight = ovutils::OV_INVALID;
